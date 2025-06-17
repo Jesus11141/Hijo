@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Un Mensaje de Papá</title>
+    <style>
+        /* Estilos generales del cuerpo */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f8ff; /* Color de fondo por defecto */
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            color: #333;
+            /* Estilos para la imagen de fondo */
+            background-size: cover;
+            background-attachment: fixed; /* Fija la imagen para que no se mueva con el scroll */
+            transition: background-image 0.5s ease-in-out; /* Transición suave */
+        }
+
+        /* --- NUEVO: Clases para posicionar cada fondo --- */
+        .fondo-doctor { background-position: center center; }
+        .fondo-militar { background-position: center top; } /* Ajuste para la cabeza */
+        .fondo-policia { background-position: center center; }
+        .fondo-bombero { background-position: center center; }
+        .fondo-programador { background-position: center center; }
+
+
+        /* Contenedor principal */
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px 30px;
+            background-color: rgba(255, 255, 255, 0.7); /* Fondo blanco transparente */
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Títulos */
+        h1 {
+            color: #0056b3;
+            font-size: 2.2em;
+        }
+
+        h2 {
+            color: #007bff;
+            font-size: 1.8em;
+        }
+
+        /* Párrafos y mensajes */
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+
+        /* Estilos para los botones de profesiones */
+        .botones-profesion button {
+            display: block;
+            width: 80%;
+            margin: 15px auto;
+            padding: 15px;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .botones-profesion button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        /* Estilo para el mensaje final de papá */
+        .firma-papa {
+            margin-top: 30px;
+            font-weight: bold;
+            font-style: italic;
+            color: #d9534f;
+            font-size: 1.3em;
+        }
+        
+        /* Ocultar las páginas de las profesiones por defecto */
+        .pagina-profesion {
+            display: none;
+        }
+
+        /* Botón para volver al inicio */
+        .boton-volver {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1em;
+            color: white;
+            background-color: #5cb85c;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .boton-volver:hover {
+            background-color: #4cae4c;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- ===== PÁGINA DE INICIO ===== -->
+        <div id="inicio">
+            <h1>Hola hijo,</h1>
+            <h2>¿Qué te gustaría ser de grande?</h2>
+            <div class="botones-profesion">
+                <!-- CAMBIO: Se actualizó la imagen de doctor a .jpg y se añadió una clase de fondo -->
+                <button onclick="mostrarProfesion('doctor', 'imagenes/doctor.jpg', 'fondo-doctor')">‍⚕️ Doctor</button>
+                <button onclick="mostrarProfesion('militar', 'imagenes/militar.jpg', 'fondo-militar')">🎖️ Militar</button>
+                <button onclick="mostrarProfesion('policia', 'imagenes/policia.jpg', 'fondo-policia')">👮‍♂️ Policía</button>
+                <button onclick="mostrarProfesion('bombero', 'imagenes/bombero.jpg', 'fondo-bombero')">‍🚒 Bombero</button>
+                <button onclick="mostrarProfesion('programador', 'imagenes/programador.jpeg', 'fondo-programador')">💻 Programador</button>
+            </div>
+        </div>
+
+        <!-- ===== PÁGINA PARA DOCTOR ===== -->
+        <div id="doctor" class="pagina-profesion">
+            <h2>¡Un Futuro Gran Doctor!</h2>
+            <p>
+                Si eliges ser doctor, tendrás el poder de curar y cuidar a las personas. Cada día será una oportunidad para ser un héroe, aliviando el dolor y salvando vidas. Estudiarás mucho, pero cada conocimiento te convertirá en una esperanza para muchos. ¡Qué orgullo sería verte con tu bata blanca!
+            </p>
+            <p class="firma-papa">
+                Recuerda que tu papá te ama y te apoyará siempre.<br>Atte: Raúl
+            </p>
+            <button class="boton-volver" onclick="mostrarInicio()">Elegir otra vez</button>
+        </div>
+
+        <!-- ===== PÁGINA PARA MILITAR ===== -->
+        <div id="militar" class="pagina-profesion">
+            <h2>¡Un Futuro Valiente Militar!</h2>
+            <p>
+                Si decides ser militar, te convertirás en un defensor de la patria y de tu gente. Aprenderás sobre disciplina, honor y valentía. Serás fuerte de cuerpo y de mente, y trabajarás en equipo para proteger a los demás. Tu valor será una inspiración para todos.
+            </p>
+            <p class="firma-papa">
+                Recuerda que tu papá te ama y te apoyará siempre.<br>Atte: Raúl
+            </p>
+            <button class="boton-volver" onclick="mostrarInicio()">Elegir otra vez</button>
+        </div>
+
+        <!-- ===== PÁGINA PARA POLICÍA ===== -->
+        <div id="policia" class="pagina-profesion">
+            <h2>¡Un Futuro Heroico Policía!</h2>
+            <p>
+                Como policía, serás un guardián de la paz en tu comunidad. Protegerás a los inocentes y te asegurarás de que todos estén a salvo. La honestidad, el coraje y el deseo de ayudar a los demás serán tus mejores herramientas. Serías el héroe que todos admiran y respetan.
+            </p>
+            <p class="firma-papa">
+                Recuerda que tu papá te ama y te apoyará siempre.<br>Atte: Raúl
+            </p>
+            <button class="boton-volver" onclick="mostrarInicio()">Elegir otra vez</button>
+        </div>
+
+        <!-- ===== PÁGINA PARA BOMBERO ===== -->
+        <div id="bombero" class="pagina-profesion">
+            <h2>¡Un Futuro Valeroso Bombero!</h2>
+            <p>
+                Si tu corazón te llama a ser bombero, serás sinónimo de valentía. Correrás hacia el peligro cuando otros huyan, no solo para apagar fuegos, sino para rescatar y ayudar en los momentos más difíciles. Tu coraje y tu fuerza traerán calma y seguridad a muchísimas personas.
+            </p>
+            <p class="firma-papa">
+                Recuerda que tu papá te ama y te apoyará siempre.<br>Atte: Raúl
+            </p>
+            <button class="boton-volver" onclick="mostrarInicio()">Elegir otra vez</button>
+        </div>
+
+        <!-- ===== PÁGINA PARA PROGRAMADOR ===== -->
+        <div id="programador" class="pagina-profesion">
+            <h2>¡Un Futuro Genial Programador!</h2>
+            <p>
+                Como programador, tendrás el poder de crear mundos nuevos con tu mente. Podrás construir videojuegos, aplicaciones o la tecnología del futuro. Tu creatividad y tu lógica no tendrán límites. Serás un arquitecto digital, construyendo las herramientas que cambiarán el mañana.
+            </p>
+            <p class="firma-papa">
+                Recuerda que tu papá te ama y te apoyará siempre.<br>Atte: Raúl
+            </p>
+            <button class="boton-volver" onclick="mostrarInicio()">Elegir otra vez</button>
+        </div>
+
+    </div>
+
+    <script>
+        // Lista de clases de fondo para poder limpiarlas fácilmente
+        const fondoClasses = ['fondo-doctor', 'fondo-militar', 'fondo-policia', 'fondo-bombero', 'fondo-programador'];
+
+        // Función para mostrar la profesión y cambiar el fondo
+        function mostrarProfesion(idProfesion, imagenFondo, claseFondo) {
+            // Limpiamos clases anteriores y añadimos la nueva para la posición
+            document.body.classList.remove(...fondoClasses);
+            document.body.classList.add(claseFondo);
+            
+            // Asignamos la nueva imagen de fondo
+            document.body.style.backgroundImage = `url('${imagenFondo}')`;
+            
+            // Ocultamos el inicio y mostramos la página de la profesión
+            document.getElementById('inicio').style.display = 'none';
+            document.getElementById(idProfesion).style.display = 'block';
+        }
+
+        // Función para volver al inicio
+        function mostrarInicio() {
+            // Limpiamos la imagen y las clases de fondo
+            document.body.style.backgroundImage = 'none';
+            document.body.classList.remove(...fondoClasses);
+            
+            // Ocultamos todas las páginas de profesiones
+            const paginas = document.querySelectorAll('.pagina-profesion');
+            paginas.forEach(function(pagina) {
+                pagina.style.display = 'none';
+            });
+
+            // Mostramos la página de inicio
+            document.getElementById('inicio').style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>
